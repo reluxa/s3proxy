@@ -224,6 +224,13 @@ public final class Main {
             blobStore = ReadOnlyBlobStore.newReadOnlyBlobStore(blobStore);
         }
 
+        String cachingBlobStore = properties.getProperty(
+                S3ProxyConstants.PROPERTY_CACHING_BLOBSTORE);
+        if ("true".equalsIgnoreCase(cachingBlobStore)) {
+            System.err.println("Using caching blob storage backend");
+            blobStore = new CachingBlobStore(blobStore);
+        }
+
         return blobStore;
     }
 

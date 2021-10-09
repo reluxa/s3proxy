@@ -85,6 +85,9 @@ public final class S3ProxyConstants {
     public static final String PROPERTY_READ_ONLY_BLOBSTORE =
             "s3proxy.read-only-blobstore";
 
+    public static final String PROPERTY_CACHING_BLOBSTORE =
+            "s3proxy.caching-blobstore";
+
     /** Maximum time skew allowed in signed requests. */
     public static final String PROPERTY_MAXIMUM_TIME_SKEW =
             "s3proxy.maximum-timeskew";

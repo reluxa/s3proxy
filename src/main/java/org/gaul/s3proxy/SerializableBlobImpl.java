@@ -16,6 +16,7 @@ import java.io.Serializable;
 
 public class SerializableBlobImpl implements Serializable, Blob, Comparable<Blob> {
 
+    private static final long serialVersionUID = 4279909264813462054L;
     private SerializableMutableBlobMetadata metadata;
     private Multimap<String, String> headers;
     private SerializableByteArrayPayload payload;

@@ -9,11 +9,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class SerializableByteArrayPayload implements Payload, Serializable {
 
+    private static final long serialVersionUID = 5808771245292092326L;
     private byte[] content;
     protected transient volatile boolean written;
     protected SerializableBaseMutableContentMetadata contentMetadata;
@@ -38,6 +40,7 @@ public class SerializableByteArrayPayload implements Payload, Serializable {
     }
 
     @Override
+    @Deprecated
     public InputStream getInput() {
         try {
             return openStream();
@@ -58,7 +61,7 @@ public class SerializableByteArrayPayload implements Payload, Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((content == null) ? 0 : content.hashCode());
+        result = prime * result + ((content == null) ? 0 : Arrays.hashCode(content));
         return result;
     }
 

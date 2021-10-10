@@ -19,6 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class SerializableLocation implements Location, Serializable {
 
 
+    private static final long serialVersionUID = 4944595960806108685L;
     private LocationScope scope;
     private String id;
     private String description;

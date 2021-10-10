@@ -15,6 +15,8 @@ import java.util.Map;
 
 public class SerializableMutableBlobMetadata implements MutableBlobMetadata, Serializable {
 
+    private static final long serialVersionUID = 5781202608200186595L;
+
     private StorageType type;
     private String id;
     private String name;

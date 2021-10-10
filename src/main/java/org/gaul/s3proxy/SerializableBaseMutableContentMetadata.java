@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class SerializableBaseMutableContentMetadata implements MutableContentMetadata, Serializable {
 
+    private static final long serialVersionUID = -1821352566557966916L;
+
     @Override
     public String getCacheControl() {
         return cacheControl;

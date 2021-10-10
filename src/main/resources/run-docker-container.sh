@@ -7,6 +7,7 @@ exec java \
     -Ds3proxy.authorization="${S3PROXY_AUTHORIZATION}" \
     -Ds3proxy.identity="${S3PROXY_IDENTITY}" \
     -Ds3proxy.credential="${S3PROXY_CREDENTIAL}" \
+    -Ds3proxy.caching-blobstore="${S3PROXY_CACHING_BLOBSTORE}" \
     -Ds3proxy.cors-allow-all="${S3PROXY_CORS_ALLOW_ALL}" \
     -Ds3proxy.cors-allow-origins="${S3PROXY_CORS_ALLOW_ORIGINS}" \
     -Ds3proxy.cors-allow-methods="${S3PROXY_CORS_ALLOW_METHODS}" \

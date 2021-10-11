@@ -1,5 +1,6 @@
 package org.gaul.s3proxy;
 
+import com.sun.xml.internal.ws.util.StringUtils;
 import org.ehcache.Cache;
 import org.ehcache.PersistentCacheManager;
 import org.ehcache.config.builders.CacheConfigurationBuilder;
@@ -27,8 +28,13 @@ public class CachingBlobStore extends ForwardingBlobStore {
     public CachingBlobStore(BlobStore blobStore) {
         super(blobStore);
 
+        String location = System.getProperties().getProperty("s3proxy.caching-blobstore-location");
+        if (System.getProperties().getProperty("s3proxy.caching-blobstore-location") == null || location.length() == 0) {
+            location = "/tmp";
+        }
+        
         final PersistentCacheManager persistentCacheManager = CacheManagerBuilder.newCacheManagerBuilder()
-                .with(CacheManagerBuilder.persistence("/tmp/" + File.separator + "cache"))
+                .with(CacheManagerBuilder.persistence(location + File.separator + "cache"))
                 .withCache("blobcache",
                         CacheConfigurationBuilder.newCacheConfigurationBuilder(String.class, SerializableBlobImpl.class,
                                 ResourcePoolsBuilder.newResourcePoolsBuilder()

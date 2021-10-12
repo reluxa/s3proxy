@@ -49,7 +49,9 @@ public class SerializableBaseMutableContentMetadata implements MutableContentMet
 
     @Override
     public void setContentMD5(byte[] md5) {
-        this.contentMD5 = HashCode.fromBytes(md5);
+        if (md5 != null && md5.length > 0) {
+            this.contentMD5 = HashCode.fromBytes(md5);
+        }
     }
 
 
